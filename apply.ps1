@@ -1,6 +1,6 @@
 $directory = "$Env:LocalAppData\Roblox\Versions\"
-cd $directory
-$ver = Get-Childitem "$directory\versions-*" -Name
+$ver = Get-Childitem "$directory\versions-*" -Directory -Name
+cd $directory\$ver
 
 if(Test-Path "$directory\$ver\ClientSettings") {
   rd "$directory\$ver\ClientSettings"
