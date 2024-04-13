@@ -1,9 +1,10 @@
-$directory = get-childitem "$Env:LocalAppData\Roblox\Versions\version-*" -Name
+$directory = $Env:LocalAppData\Roblox\Versions\
 cd $directory
+$ver = Get-Childitem versions-*
 
-if(Test-Path "$directory\ClientSettings") {
-  rd $directory\ClientSettings
+if(Test-Path "$directory\$ver\ClientSettings") {
+  rd $directory\$ver\ClientSettings
 }
 
-md "$directory\ClientSettings"
-iwr https://raw.githubusercontent.com/thedeveloperever/personal-fflags/main/ClientAppSettings.json -o $directory\ClientSettings\ClientAppSettings.json 
+md "$directory\$ver\ClientSettings"
+iwr https://raw.githubusercontent.com/thedeveloperever/personal-fflags/main/ClientAppSettings.json -o $directory\$ver\ClientSettings\ClientAppSettings.json 
