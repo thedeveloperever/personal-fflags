@@ -3,7 +3,7 @@ $ver = Get-Childitem "$directory\version-*" -Directory -Name
 cd $directory\$ver
 
 if(Test-Path "$directory\$ver\ClientSettings") {
-  rd "$directory\$ver\ClientSettings"
+  rd "$directory\$ver\ClientSettings" -Recurse
 }
 
 md "$directory\$ver\ClientSettings"
